@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiência de Realidade Aumentada</title>
+
+    <!-- Biblioteca A-Frame -->
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+
+    <!-- Biblioteca AR.js -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .instrucoes {
+            position: fixed;
+            top: 15px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.65);
+            padding: 12px 0;
+            z-index: 10;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="instrucoes">
+        Aponta a câmara para o marcador Hiro
+    </div>
+
+    <!-- Cena de Realidade Aumentada -->
+    <a-scene
+        embedded
+        vr-mode-ui="enabled: false"
+        arjs="sourceType: webcam; debugUIEnabled: false;"
+        renderer="colorManagement: true;">
+
+        <!-- Marcador Hiro -->
+        <a-marker preset="hiro">
+
+            <!-- Cubo azul animado -->
+            <a-box
+                position="0 0.5 0"
+                rotation="0 0 0"
+                color="#1677FF"
+                material="metalness: 0.2; roughness: 0.4"
+                animation="property: rotation;
+                           to: 0 360 0;
+                           loop: true;
+                           dur: 4000;
+                           easing: linear">
+            </a-box>
+
+            <!-- Esfera amarela -->
+            <a-sphere
+                position="0.9 0.5 0"
+                radius="0.25"
+                color="#FFD700"
+                animation="property: position;
+                           to: 0.9 0.8 0;
+                           dir: alternate;
+                           loop: true;
+                           dur: 1000">
+            </a-sphere>
+
+            <!-- Texto 3D -->
+            <a-text
+                value="Ola, Realidade Aumentada!"
+                position="-1.3 1.3 0"
+                color="#FFFFFF"
+                align="center"
+                width="4">
+            </a-text>
+
+            <!-- Base decorativa -->
+            <a-cylinder
+                position="0 0.05 0"
+                radius="0.8"
+                height="0.1"
+                color="#222222">
+            </a-cylinder>
+
+        </a-marker>
+
+        <!-- Câmara controlada pela cena AR -->
+        <a-entity camera></a-entity>
+
+    </a-scene>
+
+</body>
+</html>
