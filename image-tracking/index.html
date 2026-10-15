@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AR por deteção de imagem</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image.prod.js"></script>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+  <a-scene
+    mindar-image="imageTargetSrc: ./targets.mind;"
+    color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <mindar-image="imageTargetSrc: ./targets.mind;">
+
+      <a-plane
+        color="#0000FF"
+        opacity="0.5"
+        position="0 0 0"
+        height="1"
+        width="1">
+      </a-plane>
+
+      <a-box
+        color="#FF0000"
+        width="0.3"
+        height="0.3"
+        depth="0.3"
+        position="0 0.3 0"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
+      </a-box>
+
+      <a-text
+        value="Imagem detetada!"
+        color="#FFFFFF"
+        align="center"
+        position="0 0.6 0"
+        scale="0.5 0.5 0.5">
+      </a-text>
+
+      <a-sphere
+        color="#FFFF00"
+        radius="0.15"
+        position="0.4 0.2 0"
+        animation="property: position; to: -0.4 0.2 0; dir: alternate; loop: true; dur: 2000">
+      </a-sphere>
+    </a-entity>
+  </a-scene>
+</body>
+</html>
