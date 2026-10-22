@@ -1,59 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AR por deteção de imagem</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Image Tracking - Realidade Aumentada</title>
 
-  <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image.prod.js"></script>
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-</head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
+  </head>
 
-<body style="margin: 0; overflow: hidden;">
-  <a-scene
-    mindar-image="imageTargetSrc: ./targets.mind;"
-    color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights"
-    vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false">
+  <body>
+    <a-scene
+      mindar-image="imageTargetSrc: https://acspt.github.io/A-FRAME/ar/image/detect-spinosaurus-mindar/assets/targets-spinosaurus.glb.mind;"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
+      <a-assets timeout="60000">
+        <a-asset-item
+          id="dinosaur"
+          src="https://acspt.github.io/A-FRAME/ar/image/detect-spinosaurus-mindar/assets/spinosaurus.glb"
+        ></a-asset-item>
+      </a-assets>
 
-    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-    <<a-entity mindar-image-target="targetIndex: 0">
-
-      <a-plane
-        color="#0000FF"
-        opacity="0.5"
+      <a-camera
         position="0 0 0"
-        height="1"
-        width="1">
-      </a-plane>
+        look-controls="enabled: false"
+      ></a-camera>
 
-      <a-box
-        color="#FF0000"
-        width="0.3"
-        height="0.3"
-        depth="0.3"
-        position="0 0.3 0"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
-      </a-box>
+      <!-- Objetos associados à imagem reconhecida -->
+      <a-entity mindar-image-target="targetIndex: 0">
 
-      <a-text
-        value="Imagem detetada!"
-        color="#FFFFFF"
-        align="center"
-        position="0 0.6 0"
-        scale="0.5 0.5 0.5">
-      </a-text>
+        <!-- Modelo 3D animado -->
+        <a-gltf-model
+          src="#dinosaur"
+          animation-mixer="clip: Open"
+          position="0 0 0"
+          scale="0.1 0.1 0.1"
+          rotation="0 90 0"
+        ></a-gltf-model>
 
-      <a-sphere
-        color="#FFFF00"
-        radius="0.15"
-        position="0.4 0.2 0"
-        animation="property: position; to: -0.4 0.2 0; dir: alternate; loop: true; dur: 2000">
-      </a-sphere>
-    </a-entity>
-  </a-scene>
-</body>
+        <!-- Texto adicional -->
+        <a-text
+          value="Dinossauro!"
+          position="0 0.8 0"
+          align="center"
+          color="#ff0000"
+          scale="0.5 0.5 0.5"
+        ></a-text>
+
+      </a-entity>
+    </a-scene>
+  </body>
 </html>
