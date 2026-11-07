@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spritesheet · A-Frame Registry</title>
+  <link rel="stylesheet" href="../estilo.css">
+  <script src="../lib/aframe-0.5.0.js"></script>
+  <script src="../lib/aframe-spritesheet-component.js"></script>
+</head>
+<body class="demo">
+  <aside>
+    <a class="voltar" href="../index.html">← Voltar aos exemplos</a>
+    <h1>Spritesheet</h1>
+    <p>Quatro imagens alternadas fazem a bola parecer saltar.</p>
+    <a class="fonte" href="https://github.com/EkoLabs/aframe-spritesheet-component">Código do autor ↗</a>
+  </aside>
+  <a-scene vr-mode-ui="enabled: false" >
+    <a-entity id="olhar" camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+    <a-plane id="folha" position="0 1.6 -3" width="1.8" height="1.8" material="shader: flat; src: url(../assets/sprite.png)" sprite-sheet="cols: 4; rows: 1; lastFrame: 3"></a-plane>
+    <a-plane class="superficie" rotation="-90 0 0" width="80" height="80" color="#354d57"></a-plane>
+    <a-sky color="#233a4b"></a-sky>
+  </a-scene>
+  <script>
+    const scene = document.querySelector('a-scene');
+    function iniciar() {
+      let frame = 0;
+      setInterval(() => {
+        frame = (frame + 1) % 4;
+        document.querySelector('#folha').setAttribute('sprite-sheet', 'progress', frame / 3);
+      }, 180);
+    }
+    if (scene.hasLoaded) iniciar();
+    else scene.addEventListener('loaded', iniciar, {once: true});
+  </script>
+</body>
+</html>

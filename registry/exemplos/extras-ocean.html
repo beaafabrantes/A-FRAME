@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Extras: Ocean · A-Frame Registry</title>
+  <link rel="stylesheet" href="../estilo.css">
+  <script src="../lib/aframe-0.5.0.js"></script>
+  <script src="../lib/aframe-extras.ocean.js"></script>
+</head>
+<body class="demo">
+  <aside>
+    <a class="voltar" href="../index.html">← Voltar aos exemplos</a>
+    <h1>Extras: Ocean</h1>
+    <p>Observa as ondas da água.</p>
+    <a class="fonte" href="https://github.com/donmccurdy/aframe-extras">Código do autor ↗</a>
+  </aside>
+  <a-scene vr-mode-ui="enabled: false" >
+    <a-entity id="olhar" camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+    <a-ocean position="0 -.4 -5" width="22" depth="20" density="35" ocean="amplitude: .18; speed: 1.4; color: #27898d"></a-ocean>
+    <a-sky color="#233a4b"></a-sky>
+  </a-scene>
+</body>
+</html>

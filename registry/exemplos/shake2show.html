@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shake2show · A-Frame Registry</title>
+  <link rel="stylesheet" href="../estilo.css">
+  <script src="../lib/aframe-0.5.0.js"></script>
+  <script src="../lib/aframe-shake2show-component.js"></script>
+</head>
+<body class="demo">
+  <aside>
+    <a class="voltar" href="../index.html">← Voltar aos exemplos</a>
+    <h1>Shake2show</h1>
+    <p>Clica na cena para mostrar ou esconder o painel.</p>
+    <a class="fonte" href="https://github.com/rdub80/aframe-shake2show-component">Código do autor ↗</a>
+  </aside>
+  <a-scene vr-mode-ui="enabled: false" >
+    <a-entity id="olhar" camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+    <a-plane visible="false" width="1.3" height=".65" color="#66cfb0" shake2show="trigger: click; zpos: -2"></a-plane>
+    <a-plane class="superficie" rotation="-90 0 0" width="80" height="80" color="#354d57"></a-plane>
+    <a-sky color="#233a4b"></a-sky>
+  </a-scene>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alongpath · A-Frame Registry</title>
+  <link rel="stylesheet" href="../estilo.css">
+  <script src="../lib/aframe-0.5.0.js"></script>
+  <script src="../lib/curve.js"></script>
+  <script src="../lib/aframe-alongpath-component.js"></script>
+</head>
+<body class="demo">
+  <aside>
+    <a class="voltar" href="../index.html">← Voltar aos exemplos</a>
+    <h1>Alongpath</h1>
+    <p>Uma esfera segue um caminho. Observa uma volta completa.</p>
+    <a class="fonte" href="https://github.com/protyze/aframe-alongpath-component">Código do autor ↗</a>
+  </aside>
+  <a-scene vr-mode-ui="enabled: false" >
+    <a-entity id="olhar" camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+    <a-curve id="trajeto"><a-curve-point position="-1.8 1 -4"></a-curve-point><a-curve-point position="0 2.4 -4"></a-curve-point><a-curve-point position="1.8 1 -4"></a-curve-point><a-curve-point position="0 0.6 -3"></a-curve-point><a-curve-point position="-1.8 1 -4"></a-curve-point></a-curve>
+    <a-sphere position="-1.8 1 -4" radius="0.1" color="#f7c66b"></a-sphere>
+    <a-sphere position="0 2.4 -4" radius="0.1" color="#f7c66b"></a-sphere>
+    <a-sphere position="1.8 1 -4" radius="0.1" color="#f7c66b"></a-sphere>
+    <a-sphere position="0 0.6 -3" radius="0.1" color="#f7c66b"></a-sphere>
+    <a-sphere radius=".22" color="#56dab7" alongpath="curve: #trajeto; dur: 4200; loop: true"></a-sphere>
+    <a-plane class="superficie" rotation="-90 0 0" width="80" height="80" color="#354d57"></a-plane>
+    <a-sky color="#233a4b"></a-sky>
+  </a-scene>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stereo · A-Frame Registry</title>
+  <link rel="stylesheet" href="../estilo.css">
+  <script src="../lib/aframe-0.5.0.js"></script>
+  <script src="../lib/aframe-stereo-component.js"></script>
+</head>
+<body class="demo">
+  <aside>
+    <a class="voltar" href="../index.html">← Voltar aos exemplos</a>
+    <h1>Stereo</h1>
+    <p>Clica no botão para alternar entre a esfera e o cubo.</p>
+    <button id="alternar">Ver pelo olho direito</button>
+    <a class="fonte" href="https://github.com/oscarmarinmiro/aframe-stereo-component">Código do autor ↗</a>
+  </aside>
+  <a-scene vr-mode-ui="enabled: false" >
+    <a-entity id="olhar" camera stereocam="eye: left" look-controls wasd-controls position="0 1.6 0"></a-entity>
+    <a-box stereo="eye: right" position="0 1.6 -3" rotation="12 28 0" color="#ed9b60"></a-box>
+    <a-sphere position="0 1.6 -3" radius=".55" color="#68d6b6" stereo="eye: left"></a-sphere>
+    <a-plane class="superficie" rotation="-90 0 0" width="80" height="80" color="#354d57"></a-plane>
+    <a-sky color="#233a4b"></a-sky>
+  </a-scene>
+  <script>
+    const scene = document.querySelector('a-scene');
+    function iniciar() {
+      let olho = 'left';
+      document.querySelector('#alternar').onclick = e => {
+        olho = olho === 'left' ? 'right' : 'left';
+        const camera = document.querySelector('#olhar');
+        camera.setAttribute('stereocam', 'eye', olho);
+        camera.getObject3D('camera').layers.set(0);
+        camera.getObject3D('camera').layers.enable(olho === 'left' ? 1 : 2);
+        e.target.textContent = olho === 'left' ? 'Ver pelo olho direito' : 'Ver pelo olho esquerdo';
+      };
+    }
+    if (scene.hasLoaded) iniciar();
+    else scene.addEventListener('loaded', iniciar, {once: true});
+  </script>
+</body>
+</html>

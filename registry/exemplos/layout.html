@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Layout · A-Frame Registry</title>
+  <link rel="stylesheet" href="../estilo.css">
+  <script src="../lib/aframe-0.8.2.js"></script>
+  <script src="../lib/aframe-layout-component.js"></script>
+</head>
+<body class="demo">
+  <aside>
+    <a class="voltar" href="../index.html">← Voltar aos exemplos</a>
+    <h1>Layout</h1>
+    <p>Cinco esferas ficam distribuídas em círculo.</p>
+    <a class="fonte" href="https://github.com/ngokevin/kframe">Código do autor ↗</a>
+  </aside>
+  <a-scene vr-mode-ui="enabled: false" >
+    <a-entity id="olhar" camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+    <a-entity layout="type: circle; radius: 1" position="0 1.65 -3.5"><a-sphere radius=".21" color="#68d7ba"></a-sphere><a-sphere radius=".21" color="#ebb169"></a-sphere><a-sphere radius=".21" color="#e97d69"></a-sphere><a-sphere radius=".21" color="#b1a0e5"></a-sphere><a-sphere radius=".21" color="#7eb8db"></a-sphere></a-entity>
+    <a-plane class="superficie" rotation="-90 0 0" width="80" height="80" color="#354d57"></a-plane>
+    <a-sky color="#233a4b"></a-sky>
+  </a-scene>
+</body>
+</html>

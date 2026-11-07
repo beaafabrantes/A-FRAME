@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "version": 4.4,
+    "type": "Object"
+  },
+  "geometries": [
+    {
+      "uuid": "forma",
+      "type": "TorusKnotGeometry",
+      "radius": 0.65,
+      "tube": 0.16,
+      "radialSegments": 64,
+      "tubularSegments": 100
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "cor",
+      "type": "MeshPhongMaterial",
+      "color": 16100449
+    }
+  ],
+  "object": {
+    "uuid": "no",
+    "type": "Mesh",
+    "geometry": "forma",
+    "material": "cor"
+  }
+}

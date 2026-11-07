@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Room · A-Frame Registry</title>
+  <link rel="stylesheet" href="../estilo.css">
+  <script src="../lib/aframe-0.6.1.js"></script>
+  <script src="../lib/aframe-room-component.js"></script>
+</head>
+<body class="demo">
+  <aside>
+    <a class="voltar" href="../index.html">← Voltar aos exemplos</a>
+    <h1>Room</h1>
+    <p>Usa W para atravessar a porta entre as duas salas.</p>
+    <a class="fonte" href="https://github.com/omgitsraven/aframe-room-component">Código do autor ↗</a>
+  </aside>
+  <a-scene vr-mode-ui="enabled: false" >
+    <a-entity id="olhar" camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+    <rw-room position="-2 0 -4" material="color: #82bab1">
+      <rw-wall position="0 0 0"><rw-doorhole id="a"></rw-doorhole></rw-wall><rw-wall position="4 0 0"></rw-wall><rw-wall position="4 0 6"></rw-wall><rw-wall position="0 0 6"></rw-wall>
+      <rw-floor material="color: #445d64"></rw-floor>
+    </rw-room>
+    <rw-room position="-2 0 -9" material="color: #d09467">
+      <rw-wall position="0 0 0"></rw-wall><rw-wall position="4 0 0"></rw-wall><rw-wall position="4 0 4"><rw-doorhole id="b"></rw-doorhole></rw-wall><rw-wall position="0 0 4"></rw-wall>
+      <rw-floor material="color: #614d47"></rw-floor>
+    </rw-room>
+    <rw-doorlink from="#a" to="#b" position="0 0 -4.5" width="1.5" height="2" material="color: #b98462"><rw-sides></rw-sides><rw-floor></rw-floor></rw-doorlink>
+    <a-sky color="#233a4b"></a-sky>
+  </a-scene>
+</body>
+</html>

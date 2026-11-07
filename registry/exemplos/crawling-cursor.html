@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crawling Cursor · A-Frame Registry</title>
+  <link rel="stylesheet" href="../estilo.css">
+  <script src="../lib/aframe-0.5.0.js"></script>
+  <script src="../lib/aframe-crawling-cursor.js"></script>
+</head>
+<body class="demo">
+  <aside>
+    <a class="voltar" href="../index.html">← Voltar aos exemplos</a>
+    <h1>Crawling Cursor</h1>
+    <p>Arrasta o rato. O cursor acompanha a superfície dos objetos.</p>
+    <a class="fonte" href="https://github.com/jujunjun110/aframe-crawling-cursor">Código do autor ↗</a>
+  </aside>
+  <a-scene vr-mode-ui="enabled: false" >
+    <a-entity camera look-controls position="0 1.6 0" raycaster="objects: .superficie" crawling-cursor="target: #cursor"></a-entity>
+    <a-box class="superficie" id="alvo" position="0 1.6 -3" rotation="12 28 0" color="#ed9b60"></a-box>
+    <a-ring id="cursor" radius-inner=".038" radius-outer=".052" material="shader: flat; color: #ffffff; side: double"></a-ring>
+    <a-plane class="superficie" rotation="-90 0 0" width="80" height="80" color="#354d57"></a-plane>
+    <a-sky color="#233a4b"></a-sky>
+  </a-scene>
+</body>
+</html>
